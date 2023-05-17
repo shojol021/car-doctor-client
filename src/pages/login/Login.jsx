@@ -6,7 +6,7 @@ import Social from './Social';
 
 const Login = () => {
     const navigate = useNavigate()
-    const { signin, googleLogin } = useContext(AuthContext)
+    const { signin } = useContext(AuthContext)
 
     const handleLogin = e => {
         e.preventDefault();
