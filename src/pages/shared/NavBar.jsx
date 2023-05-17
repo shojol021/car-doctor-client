@@ -1,12 +1,18 @@
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.svg'
+import { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Header = () => {
+    const {user, logout} = useContext(AuthContext)
+    const handleLogout = () => {
+        logout()
+        .then(() => console.log('Logged out'))
+    }
 
     const menus = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/about'>About</Link></li>
-        <li><Link to='/login'>Login</Link></li>
     </>
     return (
         <div className="navbar bg-base-100 mb-5">
@@ -27,6 +33,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+            {user? <Link to='/login'><button onClick={handleLogout} className="btn btn-error mr-5 w-[120px]">Logout</button></Link>:<Link to='/login'><button className="btn btn-primary mr-5 w-[120px]">Login</button></Link>}
             <button className="btn btn-outline btn-accent">Appointment</button>
             </div>
         </div>
