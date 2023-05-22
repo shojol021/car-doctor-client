@@ -6,7 +6,7 @@ const Checkout = () => {
     const serviceInfo = useLoaderData()
     const {user} = useContext(AuthContext)
     console.log(serviceInfo)
-    const {_id, title, img, price } = serviceInfo
+    const {title, img, price } = serviceInfo
 
     const handleCheckout = (e) => {
         e.preventDefault()
