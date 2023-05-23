@@ -1,7 +1,7 @@
 
 
-const BookingsTable = ({ booking, idx, handleDelete }) => {
-    const {_id, name, email, amount, date, title, img } = booking;
+const BookingsTable = ({ booking, idx, handleDelete, handleUpdate }) => {
+    const {_id, name, email, amount, date, title, img, status } = booking;
 
     
 
@@ -25,7 +25,10 @@ const BookingsTable = ({ booking, idx, handleDelete }) => {
             <td>{amount}</td>
             <td>{date}</td>
             <td>
-                <button className="btn btn-sm">Details</button>
+                {
+                    status? <div className="font-bold text-green-500">Confirmed</div>:
+                    <button onClick={() => handleUpdate(_id)} className="btn btn-sm">Confirm</button>
+                }
             </td>
         </tr>
     );
