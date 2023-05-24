@@ -8,9 +8,14 @@ const Bookings = () => {
 
     const url = `http://localhost:5000/booking?email=${user?.email}`
     useEffect(() => {
-        fetch(url)
+        fetch(url, {
+            method: "GET",
+            headers: {
+                authorization: `Bearer $${localStorage.getItem('access-token')}`
+            }
+        })
             .then(res => res.json())
-            .then(data => setBookings(data))
+            .then(data => console.log('data', data))
     }, [url])
 
     const handleDelete = (id) => {

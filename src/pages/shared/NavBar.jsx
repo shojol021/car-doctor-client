@@ -7,7 +7,10 @@ const Header = () => {
     const {user, logout} = useContext(AuthContext)
     const handleLogout = () => {
         logout()
-        .then(() => console.log('Logged out'))
+        .then(() => {
+            console.log('Logged out')
+            
+        })
     }
 
     const menus = <>

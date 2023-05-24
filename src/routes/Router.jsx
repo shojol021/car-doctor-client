@@ -9,6 +9,7 @@ import Register from '../pages/login/Register';
 import Checkout from '../pages/checkout/Checkout';
 import Bookings from '../pages/checkout/bookings/Bookings';
 import PrivateRoute from './PrivateRoute';
+import About from '../pages/about/About';
 
   const router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ import PrivateRoute from './PrivateRoute';
         {
           path: '/bookings',
           element: <PrivateRoute><Bookings></Bookings></PrivateRoute>
+        },
+        {
+          path: '/about',
+          element: <About></About>
         }
       ]
     },
